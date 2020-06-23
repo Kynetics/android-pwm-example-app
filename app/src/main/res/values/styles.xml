@@ -1,0 +1,18 @@
+<!--
+  ~ Copyright (C)  2020 Kynetics, LLC
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
+
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#263238</item>
+        <item name="colorPrimaryDark">#263238</item>
+        <item name="colorAccent">#00acc1</item>
+        <item name="android:textColorPrimary">#212121</item>
+        <item name="android:textColorSecondary">#757575</item>
+    </style>
+
+</resources>

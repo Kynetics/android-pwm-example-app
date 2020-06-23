@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C)  2020 Kynetics, LLC
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textView_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:text="pwm setup"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
+
+    <TextView
+        android:id="@+id/textView_pwmCtrlSel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:paddingBottom="5dp"
+        android:text="select pwm controller"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+    <Spinner
+        android:id="@+id/spinner_pwmCtrlSel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView_pwmSel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:paddingBottom="5dp"
+        android:text="select pwm pin"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+    <Spinner
+        android:id="@+id/spinner_pwmSel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
