@@ -84,7 +84,7 @@ public class PwmSettingsDialog extends DialogFragment {
                                 try {
                                     mPwm.setFrequencyHz(Double.valueOf(freqStr));
                                     callback.onPwmSettingsChanged();
-                                } catch (IOException e) {
+                                } catch (IOException | IllegalArgumentException e) {
                                     Log.e(TAG, "Cannot set PWM frequency");
                                     Snackbar.make(v.getRootView(), "Error setting PWM frequency: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                     e.printStackTrace();
@@ -104,7 +104,7 @@ public class PwmSettingsDialog extends DialogFragment {
                                 try {
                                     mPwm.setDutyCycle(Double.valueOf(dutyCycleStr));
                                     callback.onPwmSettingsChanged();
-                                } catch (IOException e) {
+                                } catch (IOException | IllegalArgumentException e) {
                                     Log.e(TAG, "Cannot set PWM duty cycle");
                                     Snackbar.make(v.getRootView(), "Error setting PWM duty cycle: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                     e.printStackTrace();
