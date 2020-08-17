@@ -1,2 +1,2 @@
-include ':app', ':libpwm-1.0-release'
+include ':app', ':libpwm-1.1-release'
 rootProject.name='android-pwm-example-app'
