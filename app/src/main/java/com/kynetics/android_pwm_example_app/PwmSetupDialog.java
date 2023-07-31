@@ -45,8 +45,10 @@ public class PwmSetupDialog extends DialogFragment {
         List<String> pwmCtrlNames = new ArrayList<>();
 
         int[] pwmCtrls = pwmManager.getPwmControllers();
-        for (int i = 0; i < pwmCtrls.length; i++) {
-            pwmCtrlNames.add(String.format(Locale.ENGLISH, "PWM CHIP %d", pwmCtrls[i]));
+        if (pwmCtrls != null) {
+            for (final int pwmCtrl : pwmCtrls) {
+                pwmCtrlNames.add(String.format(Locale.ENGLISH, "PWM CHIP %d", pwmCtrl));
+            }
         }
 
         return pwmCtrlNames;
@@ -57,8 +59,10 @@ public class PwmSetupDialog extends DialogFragment {
         List<String> pwmChNames = new ArrayList<>();
 
         int[] pwmChannels = pwmManager.getPwmChannels(pwmController);
-        for (int i = 0; i < pwmChannels.length; i++) {
-            pwmChNames.add(String.format(Locale.ENGLISH, "PWM%d", pwmChannels[i]));
+        if (pwmChannels != null) {
+            for (final int pwmChannel : pwmChannels) {
+                pwmChNames.add(String.format(Locale.ENGLISH, "PWM%d", pwmChannel));
+            }
         }
 
         return pwmChNames;
@@ -88,6 +92,10 @@ public class PwmSetupDialog extends DialogFragment {
         /* No pwm controllers found */
         if (pwmCtrlNames.isEmpty()) {
             b.setView(i.inflate(R.layout.dialog_error, null));
+            b.setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                if (getActivity() != null)
+                    getActivity().finish();
+            });
             return b.create();
         }
 
