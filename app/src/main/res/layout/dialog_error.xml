@@ -22,4 +22,12 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#ff8364" />
 
+    <TextView
+        android:id="@+id/textView_error_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:text="Check for permissions"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
 </LinearLayout>
