@@ -4,7 +4,7 @@
   -->
 
 <resources>
-    <string name="app_name">PWM Test</string>
+    <string name="app_name">PWM Handler</string>
     <string name="menu_about">About</string>
     <string name="about_text">PWM Android SDK extension example application \n\n
         This application serves as a reference implementation of Kynetics\' PWM Android SDK Extension library. \n\n
