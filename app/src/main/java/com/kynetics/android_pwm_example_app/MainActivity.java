@@ -6,13 +6,17 @@
 package com.kynetics.android_pwm_example_app;
 
 import android.os.Bundle;
+import android.content.Intent;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -47,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         View mainView = this.getLayoutInflater().inflate(R.layout.activity_main, null);
         setContentView(mainView);
 
-        setTitle("Kynetics PWM Example App");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         /* Initialize PWM manager */
         pwmManager = PwmManagerFactory.getInstance();
@@ -61,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
         textDutyCycle = findViewById(R.id.textView_dutyCycle);
         textPolarity = findViewById(R.id.textView_polarity);
         settingsFab = findViewById(R.id.fabSettings);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         /* Show PWM setup dialog */
         FragmentManager fm = getSupportFragmentManager();
@@ -76,6 +87,25 @@ public class MainActivity extends AppCompatActivity {
         });
 
         frag.show(fm, "dialog");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_recreate) {
+            recreate();
+            return true;
+        } else if (item.getItemId() == R.id.menu_about) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initPwmUI() {

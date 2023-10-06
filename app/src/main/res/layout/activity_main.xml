@@ -1,162 +1,193 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C)  2020 Kynetics, LLC
   ~ SPDX-License-Identifier: Apache-2.0
   -->
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="1"
-    android:fillViewport="true"
-    android:scrollbarStyle="insideInset"
-    android:scrollbars="vertical">
+    android:layout_height="match_parent">
 
-    <TableLayout
+
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="#263238"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <TableRow
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimaryDark"
+            app:title="@string/app_name" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimaryDark"
+            app:tabGravity="fill"
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbarStyle="insideInset"
+        android:scrollbars="vertical">
+
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_view_row1_col1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp"
-                app:contentPadding="10dp">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_row1_col1"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="5dp"
+                    app:contentPadding="10dp">
 
-                    <TextView
-                        android:id="@+id/textView_infoTitle"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:text="pwm info"
-                        android:textAllCaps="true"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textView_controllerId"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:text="controller id:"
-                        android:textAllCaps="true"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        <TextView
+                            android:id="@+id/textView_infoTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:text="pwm info"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-                    <TextView
-                        android:id="@+id/textView_chipId"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:text="channel id:"
-                        android:textAllCaps="true"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        <TextView
+                            android:id="@+id/textView_controllerId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:text="controller id:"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
-                    <TextView
-                        android:id="@+id/textView_frequency"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:text="frequency:"
-                        android:textAllCaps="true"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        <TextView
+                            android:id="@+id/textView_chipId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:text="channel id:"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
-                    <TextView
-                        android:id="@+id/textView_dutyCycle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:text="duty cycle:"
-                        android:textAllCaps="true"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        <TextView
+                            android:id="@+id/textView_frequency"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:text="frequency:"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
-                    <TextView
-                        android:id="@+id/textView_polarity"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:text="polarity:"
-                        android:textAllCaps="true"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                        <TextView
+                            android:id="@+id/textView_dutyCycle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:text="duty cycle:"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
-                    <com.google.android.material.floatingactionbutton.FloatingActionButton
-                        android:id="@+id/fabSettings"
-                        style="@style/Widget.Design.FloatingActionButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|end"
-                        android:src="@android:drawable/ic_menu_edit"
-                        app:backgroundTint="#FFFFFF"
-                        app:borderWidth="0dp"
-                        app:fabSize="mini"
-                        app:maxImageSize="24dp" />
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/textView_polarity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:text="polarity:"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
-            </androidx.cardview.widget.CardView>
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/fabSettings"
+                            style="@style/Widget.Design.FloatingActionButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:src="@android:drawable/ic_menu_edit"
+                            app:backgroundTint="#FFFFFF"
+                            app:borderWidth="0dp"
+                            app:fabSize="mini"
+                            app:maxImageSize="24dp" />
+                    </LinearLayout>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_view_row1_col2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp"
-                app:contentPadding="10dp">
+                </androidx.cardview.widget.CardView>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_row1_col2"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="5dp"
+                    app:contentPadding="10dp">
 
-                    <TextView
-                        android:id="@+id/textView_paramTitle"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingBottom="5dp"
-                        android:text="pwm parameters"
-                        android:textAllCaps="true"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="105dp"
-                        app:srcCompat="@drawable/pwm_graph" />
+                        <TextView
+                            android:id="@+id/textView_paramTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="5dp"
+                            android:text="pwm parameters"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="105dp"
+                            app:srcCompat="@drawable/pwm_graph" />
 
-                    <Switch
-                        android:id="@+id/switchEnabled"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="enable pwm"
-                        android:textAlignment="viewStart"
-                        android:textAllCaps="true" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp" />
 
-        </TableRow>
+                        <Switch
+                            android:id="@+id/switchEnabled"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="enable pwm"
+                            android:textAlignment="viewStart"
+                            android:textAllCaps="true" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-    </TableLayout>
+            </TableRow>
 
-</ScrollView>
+        </TableLayout>
+
+    </ScrollView>
+</LinearLayout>

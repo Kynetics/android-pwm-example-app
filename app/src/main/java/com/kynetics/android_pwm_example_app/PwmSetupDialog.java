@@ -8,11 +8,11 @@ package com.kynetics.android_pwm_example_app;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -77,6 +77,12 @@ public class PwmSetupDialog extends DialogFragment {
         /* Initialize dialog */
         AlertDialog.Builder b = new AlertDialog.Builder(getActivity());
         b.setPositiveButton(android.R.string.ok, null);
+        b.setNeutralButton(R.string.menu_about, (dialog, which) -> {
+            if (getActivity() != null) {
+                Intent intent = new Intent(getActivity(), AboutActivity.class);
+                startActivity(intent);
+            }
+        });
         b.setView(v);
 
         setCancelable(false);
