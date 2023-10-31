@@ -15,8 +15,8 @@ android {
         applicationId "com.kynetics.android_pwm_example_app"
         minSdkVersion 19
         targetSdk 33
-        versionCode 5
-        versionName "1.4"
+        versionCode 6
+        versionName "1.4.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
