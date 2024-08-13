@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (C)  2020 Kynetics, LLC
+  ~ Copyright © 2020 – 2024  Kynetics, Inc.
   ~ SPDX-License-Identifier: Apache-2.0
   -->
 
@@ -16,6 +16,6 @@
         <a href="https://github.com/Kynetics/android-pwm-example-app">https://github.com/Kynetics/android-pwm-example-app</a>\n\n
 
     </string>
-    <string name="about_copyright">Copyright © 2019 – 2023  Kynetics  LLC</string>
+    <string name="about_copyright">Copyright © 2020 – 2024  Kynetics, Inc.</string>
     <string name="menu_restart">restart</string>
 </resources>
