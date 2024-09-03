@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -21,10 +20,10 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.kynetics.libpwm.Pwm;
-import com.kynetics.libpwm.PwmManager;
-import com.kynetics.libpwm.PwmManagerFactory;
-import com.kynetics.libpwm.PwmPolarity;
+import com.kynetics.android.sdk.pwm.Pwm;
+import com.kynetics.android.sdk.pwm.PwmManager;
+import com.kynetics.android.sdk.pwm.PwmManagerFactory;
+import com.kynetics.android.sdk.pwm.PwmPolarity;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -77,13 +76,10 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         PwmSetupDialog frag = PwmSetupDialog.newInstance();
 
-        frag.setOnPwmSetupDoneListener(new PwmSetupDialog.OnPwmSetupDoneListener() {
-            @Override
-            public void onPwmSetupDone(int controllerId, int channelId) {
-                pwmControllerId = controllerId;
-                pwmChannelId = channelId;
-                initPwmUI();
-            }
+        frag.setOnPwmSetupDoneListener((controllerId, channelId) -> {
+            pwmControllerId = controllerId;
+            pwmChannelId = channelId;
+            initPwmUI();
         });
 
         frag.show(fm, "dialog");
@@ -177,36 +173,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /* Setup switch listener */
-        switchEnable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                try {
-                    pwm.setEnabled(b);
-                } catch (IOException e) {
-                    Log.e(TAG, "Cannot enable PWM");
-                    Snackbar.make(cardView, "Error enabling PWM: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                    switchEnable.setChecked(!b);
-                    e.printStackTrace();
-                }
+        switchEnable.setOnCheckedChangeListener((compoundButton, b) -> {
+            try {
+                pwm.setEnabled(b);
+            } catch (IOException e) {
+                Log.e(TAG, "Cannot enable PWM");
+                Snackbar.make(cardView, "Error enabling PWM: " + e.getMessage(), Snackbar.LENGTH_LONG).show();
+                switchEnable.setChecked(!b);
+                e.printStackTrace();
             }
         });
     }
 
     private void setupPwmSettingsButton() {
         /* Setup change freq/duty cycle dialog */
-        settingsFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentManager fm = getSupportFragmentManager();
-                PwmSettingsDialog frag = PwmSettingsDialog.newInstance(pwm);
-                frag.show(fm, "dialog_settings");
-                frag.setOnPwmSettingsChangedListener(new PwmSettingsDialog.OnPwmSettingsChangedListener() {
-                    @Override
-                    public void onPwmSettingsChanged() {
-                        updatePwmInfo();
-                    }
-                });
-            }
+        settingsFab.setOnClickListener(view -> {
+            FragmentManager fm = getSupportFragmentManager();
+            PwmSettingsDialog frag = PwmSettingsDialog.newInstance(pwm);
+            frag.show(fm, "dialog_settings");
+            frag.setOnPwmSettingsChangedListener(this::updatePwmInfo);
         });
     }
 

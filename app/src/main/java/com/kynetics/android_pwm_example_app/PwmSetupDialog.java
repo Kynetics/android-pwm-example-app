@@ -22,8 +22,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-import com.kynetics.libpwm.PwmManager;
-import com.kynetics.libpwm.PwmManagerFactory;
+import com.kynetics.android.sdk.pwm.PwmManager;
+import com.kynetics.android.sdk.pwm.PwmManagerFactory;
 
 import java.util.ArrayList;
 import java.util.List;

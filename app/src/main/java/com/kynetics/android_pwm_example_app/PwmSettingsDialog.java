@@ -21,8 +21,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.kynetics.libpwm.Pwm;
-import com.kynetics.libpwm.PwmPolarity;
+import com.kynetics.android.sdk.pwm.Pwm;
+import com.kynetics.android.sdk.pwm.PwmPolarity;
 
 import java.io.IOException;
 
