@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 – 2024  Kynetics, Inc.
+ * Copyright © 2020 – 2025  Kynetics, Inc.
  * SPDX-License-Identifier: Apache-2.0
  */
 package com.kynetics.android_pwm_example_app;

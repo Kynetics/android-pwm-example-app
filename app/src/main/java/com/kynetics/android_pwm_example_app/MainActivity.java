@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 – 2024  Kynetics, Inc.
+ * Copyright © 2020 – 2025  Kynetics, Inc.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         /* Initialize PWM manager */
-        pwmManager = PwmManagerFactory.getInstance();
+        pwmManager = PwmManagerFactory.getInstance(this);
 
         /* Setup main UI elements */
         cardView = findViewById(R.id.card_view_row1_col1);

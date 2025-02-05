@@ -1,5 +1,5 @@
 /*
- * Copyright © 2020 – 2024  Kynetics, Inc.
+ * Copyright © 2020 – 2025  Kynetics, Inc.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -88,7 +88,7 @@ public class PwmSetupDialog extends DialogFragment {
         setCancelable(false);
 
         /* Initialize PWM manager */
-        pwmManager = PwmManagerFactory.getInstance();
+        pwmManager = PwmManagerFactory.getInstance(getContext());
 
        /* Setup list of pwm controllers and channels */
         final Spinner dropdownCtrls = v.findViewById(R.id.spinner_pwmCtrlSel);
