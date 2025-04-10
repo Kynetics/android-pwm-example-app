@@ -88,7 +88,7 @@ public class PwmSetupDialog extends DialogFragment {
         setCancelable(false);
 
         /* Initialize PWM manager */
-        pwmManager = PwmManagerFactory.getInstance(getContext());
+        pwmManager = PwmManagerFactory.getInstance();
 
        /* Setup list of pwm controllers and channels */
         final Spinner dropdownCtrls = v.findViewById(R.id.spinner_pwmCtrlSel);
