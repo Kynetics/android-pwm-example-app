@@ -54,7 +54,7 @@ public class PwmSettingsDialog extends DialogFragment {
         /* Setup initial values */
         try {
             editTextFreq.setText(String.valueOf(mPwm.getFrequencyHz()));
-            editTextDutyCycle.setText(String.valueOf(mPwm.getDutyCycle()).trim());
+            editTextDutyCycle.setText(String.valueOf((int) mPwm.getDutyCycle()).trim());
             radioGroupPolarity.check(mPwm.getPolarity() == PwmPolarity.POLARITY_NORMAL ? R.id.radioButtonNormal : R.id.radioButtonInversed);
 
         } catch (IOException e) {

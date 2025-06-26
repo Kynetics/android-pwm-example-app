@@ -63,8 +63,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="numberDecimal"
-            android:maxLength="4" />
+            android:inputType="number"
+            android:maxLength="3" />
     </com.google.android.material.textfield.TextInputLayout>
     <Space
         android:layout_width="match_parent"
